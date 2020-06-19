@@ -27,6 +27,22 @@ class StreamList extends React.Component {
     }
   }
 
+  renderRolename(stream){
+    if(stream.name == "NAGAMANI NARAVA"){
+      return(
+          <div>
+            <div className="description">Senior Java Developer</div>
+          </div>
+        );
+    }
+    else{
+      return(
+        <div className="description">{stream.skills}</div>
+      );
+    }
+    
+  }
+
   renderList() {
    
     
@@ -37,10 +53,12 @@ class StreamList extends React.Component {
               {this.renderAdmin(stream)} 
             <i className="user icon" />
             <div className="content">
-              <Link to={`/streams/${stream.id}`} className="header">
+              <Link to={`/applicants/${stream.id}`} className="header">
                 {stream.name}
               </Link>
-              <div className="description">{stream.skills}</div>
+             {this.renderRolename(stream)}
+              
+              
             </div> 
           </div>
         );
@@ -53,8 +71,8 @@ class StreamList extends React.Component {
     if (this.props.isSignedIn) {
       return (
         <div style={{ textAlign: 'right' }}>
-          <Link to="/streams/new" className="ui button primary">
-            Create Stream
+          <Link to="/applicants/new" className="ui button primary">
+            Create Profile
           </Link>
         </div>
       );
@@ -75,8 +93,9 @@ class StreamList extends React.Component {
   render() {
     return (
       <div>
-        {/* {this.renderMessage()} */}
-        <h2>List of Profiles</h2>
+         {/* {this.renderMessage()}  */}
+        <br/>
+        <h2>PROFILES:</h2>
         <div className="ui celled list">{this.renderList()}</div>
         {this.renderCreate()}
       </div>
