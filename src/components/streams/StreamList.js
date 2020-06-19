@@ -28,7 +28,7 @@ class StreamList extends React.Component {
   }
 
   renderRolename(stream){
-    if(stream.name == "NAGAMANI NARAVA"){
+    if(stream.name === "NAGAMANI NARAVA"){
       return(
           <div>
             <div className="description">Senior Java Developer</div>
