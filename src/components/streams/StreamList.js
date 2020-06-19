@@ -75,7 +75,7 @@ class StreamList extends React.Component {
   render() {
     return (
       <div>
-        {this.renderMessage()}
+        {/* {this.renderMessage()} */}
         <h2>List of Profiles</h2>
         <div className="ui celled list">{this.renderList()}</div>
         {this.renderCreate()}
