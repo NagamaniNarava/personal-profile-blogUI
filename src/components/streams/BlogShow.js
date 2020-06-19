@@ -13,7 +13,6 @@ class StreamShow extends React.Component {
           <li>This blog is a Single Page Application developed in React with Redux</li>
           <li>Profile data is stored using Spring REST with Hibernate</li>
           <li>RDS database is created in AWS to add profile information</li>
-          <li>RDS database is created in AWS to add profile information</li>
           <li>REST Application is deployed on AWS Elastic Bean Stalk</li>
           <li>Front end is deployed in AWS EC2 Instance</li>
         </ul>
