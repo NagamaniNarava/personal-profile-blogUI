@@ -72,7 +72,7 @@ class StreamList extends React.Component {
       return (
         <div style={{ textAlign: 'right' }}>
           <Link to="/applicants/new" className="ui button primary">
-            Create Profile
+            Add Profile
           </Link>
         </div>
       );
@@ -83,7 +83,7 @@ class StreamList extends React.Component {
       return (
         <div className="item">
           <h5>
-            Please login with Google to create your profile in this blog.
+            Please sign in with Google to create your profile in this blog.
           </h5>
       </div> 
       );
@@ -93,7 +93,8 @@ class StreamList extends React.Component {
   render() {
     return (
       <div>
-         {/* {this.renderMessage()}  */}
+        <br/>
+         {this.renderMessage()}  
         <br/>
         <h2>PROFILES:</h2>
         <div className="ui celled list">{this.renderList()}</div>

@@ -9,7 +9,6 @@ import {
   DELETE_STREAM,
   EDIT_STREAM
 } from './types';
-import Axios from 'axios';
 
 
 
