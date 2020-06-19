@@ -18,57 +18,57 @@ const Header = () => {
     //   </div>
     // </div>
     <div>
-            {/* <div class="ui large top fixed menu transition hidden">
-                <div class="ui container">
+            {/* <div className="ui large top fixed menu transition hidden">
+                <div className="ui container">
                     <Link to="/" className="item">Home</Link>
                     <Link to="/algorithms" className="item">Algorithms</Link>
-                    <a class="item">Configurations</a>
-                    <a class="item">About</a>
-                    <div class="right menu">
-                    <div class="item">
-                        <a class="ui button">Log in</a>
+                    <a className="item">Configurations</a>
+                    <a className="item">About</a>
+                    <div className="right menu">
+                    <div className="item">
+                        <a className="ui button">Log in</a>
                     </div>
-                    <div class="item">
-                        <a class="ui primary button">Sign Up</a>
+                    <div className="item">
+                        <a className="ui primary button">Sign Up</a>
                     </div>
                     </div>
                 </div>
             </div> */}
 
 
-            {/* <div class="ui vertical inverted sidebar menu left">
+            {/* <div className="ui vertical inverted sidebar menu left">
             <Link to="/" className="item">Home</Link>
             <Link to="/algorithms" className="item">Algorithms</Link>
-            <a class="item">Configurations</a>
-            <a class="item">About</a>
-            <a class="item">Login</a>
-            <a class="item">Signup</a>
+            <a className="item">Configurations</a>
+            <a className="item">About</a>
+            <a className="item">Login</a>
+            <a className="item">Signup</a>
             </div> */}
 
 
 
-            <div class="pusher">
-                <div class="ui inverted vertical masthead center aligned segment">
+            <div className="pusher">
+                <div className="ui inverted vertical masthead center aligned segment">
 
-                    <div class="ui container">
-                    <div class="ui large secondary inverted pointing menu">
-                        {/* <a class="toc item">
-                        <i class="sidebar icon"></i>
+                    <div className="ui container">
+                    <div className="ui large secondary inverted pointing menu">
+                        {/* <a className="toc item">
+                        <i className="sidebar icon"></i>
                         </a> */}
                         <Link to="/" className="item">Home</Link>
                         <Link to="/about" className="item"> About</Link> 
-                        <div class="right item">
+                        <div className="right item">
                         <GoogleAuth />
                         </div>
                     </div>
                     </div>
 
-                    <div class="ui text container">
-                    <h1 class="ui inverted header">
+                    <div className="ui text container">
+                    <h1 className="ui inverted header">
                         Learning Geeks
                     </h1>
                     {/* <h2>Personal Profile Blog</h2> */}
-                    {/* <div class="ui huge primary button">Get Started <i class="right arrow icon"></i></div> */}
+                    {/* <div className="ui huge primary button">Get Started <i className="right arrow icon"></i></div> */}
                     </div>
 
                 </div>

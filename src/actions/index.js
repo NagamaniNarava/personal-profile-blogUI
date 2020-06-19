@@ -6,8 +6,10 @@ import {
   CREATE_STREAM,
   FETCH_STREAMS,
   FETCH_STREAM,
+  DELETE_STREAM,
   EDIT_STREAM
 } from './types';
+import Axios from 'axios';
 
 
 
@@ -52,8 +54,7 @@ export const editStream = (id, formValues) => async dispatch => {
 };
 
 export const deleteStream = id => async dispatch => {
-  // await Axios.post(`http://localhost8081:/spring-crm-rest/api/applicant/delete/${id}`);
-
-  // dispatch({ type: DELETE_STREAM, payload: id });
+  await streams.post(`/applicant/delete/${id}`);
+  dispatch({ type: DELETE_STREAM, payload: id });
   history.push('/');
 };
