@@ -15,7 +15,7 @@ class StreamShow extends React.Component {
       return <div><h1>Loading...</h1></div>;
     }
 
-    const { firstName,lastName,role, summary,skills,education,phoneNo,mailId,profileImageUrl } = this.props.stream;
+    const { firstName,lastName,role, summary,skills,education,phoneNo,mailId } = this.props.stream;
 
     if (!this.props.stream) {
       return <div>Loading...</div>;

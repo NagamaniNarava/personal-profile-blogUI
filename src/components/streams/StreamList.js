@@ -52,7 +52,6 @@ class StreamList extends React.Component {
    
     
     if(this.props.streams!= null){
-      console.log(this.props.streams);
       return this.props.streams.map(stream => {
         return (
           <div className="item" key={stream.id}>

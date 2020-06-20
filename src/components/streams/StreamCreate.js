@@ -14,11 +14,11 @@ const config = {
 class StreamCreate extends React.Component {
   state = {url:null};
   onSubmit = formValues => {
-    console.log(formValues);
+    // console.log(formValues);
     this.props.createStream(formValues);
   };
   upload = (e)=>{
-    console.log(e.target.files);
+    // console.log(e.target.files);
     S3FileUpload
     .uploadFile(e.target.files[0], config)
     .then(data => {this.setState({url:data})})
