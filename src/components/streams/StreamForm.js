@@ -33,11 +33,14 @@ class StreamForm extends React.Component {
         onSubmit={this.props.handleSubmit(this.onSubmit)}
         className="ui form error"
       >
-        <Field name="name" component={this.renderInput} label="Enter Name" />
-        <Field name="summary" component={this.renderInput} label="Enter Summary" />
-        <Field name="skills" component={this.renderInput} label="Enter Skills"/>
-        <Field name="education" component={this.renderInput} label="Enter Education"/>
-        <Field name="contactInfo" component={this.renderInput} label="Enter ContactInfo"/>
+        <Field name="firstName" component={this.renderInput} label="First Name" />
+        <Field name="lastName" component={this.renderInput} label="Last Name" />
+        <Field name="role" component={this.renderInput} label="Role/Headline" />
+        <Field name="summary" component={this.renderInput} label="About" />
+        <Field name="skills" component={this.renderInput} label="Skills"/>
+        <Field name="education" component={this.renderInput} label="Education"/>
+        <Field name="phoneNo" component={this.renderInput} label="Mobile number"/>
+        <Field name="mailId" component={this.renderInput} label="Mail ID"/>
         <button className="ui button primary">Submit</button>
       </form>
     );
@@ -47,25 +50,29 @@ class StreamForm extends React.Component {
 const validate = formValues => {
   const errors = {};
 
-  if (!formValues.name) {
+  if (!formValues.firstname) {
     errors.title = 'You must enter a name';
   }
 
-  if (!formValues.summary) {
-    errors.description = 'You must enter a summary';
+  if (!formValues.lastname) {
+    errors.title = 'You must enter a name';
   }
 
-  if (!formValues.skills) {
-    errors.description = 'You must enter a skills';
-  }
+  // if (!formValues.summary) {
+  //   errors.description = 'You must enter a summary';
+  // }
 
-  if (!formValues.education) {
-    errors.description = 'You must enter a education';
-  }
+  // if (!formValues.skills) {
+  //   errors.description = 'You must enter a skills';
+  // }
 
-  if (!formValues.contactInfo) {
-    errors.description = 'You must enter a contactInfo';
-  }
+  // if (!formValues.education) {
+  //   errors.description = 'You must enter a education';
+  // }
+
+  // if (!formValues.contactInfo) {
+  //   errors.description = 'You must enter a contactInfo';
+  // }
 
 
   return errors;

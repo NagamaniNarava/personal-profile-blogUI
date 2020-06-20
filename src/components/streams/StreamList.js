@@ -28,18 +28,23 @@ class StreamList extends React.Component {
   }
 
   renderRolename(stream){
-    if(stream.name === "NAGAMANI NARAVA"){
-      return(
-          <div>
-            <div className="description">Senior Java Developer</div>
-          </div>
-        );
-    }
-    else{
-      return(
-        <div className="description">{stream.skills}</div>
-      );
-    }
+    // if(stream.name === "NAGAMANI NARAVA"){
+    //   return(
+    //       <div>
+    //         <div className="description">Senior Java Developer</div>
+    //       </div>
+    //     );
+    // }
+    // else{
+    //   return(
+    //     <div className="description">{stream.skills}</div>
+    //   );
+    // }
+    return(
+            <div>
+              <div className="description">{stream.role}</div>
+            </div>
+          );
     
   }
 
@@ -47,6 +52,7 @@ class StreamList extends React.Component {
    
     
     if(this.props.streams!= null){
+      console.log(this.props.streams);
       return this.props.streams.map(stream => {
         return (
           <div className="item" key={stream.id}>
@@ -54,7 +60,7 @@ class StreamList extends React.Component {
             <i className="user icon" />
             <div className="content">
               <Link to={`/applicants/${stream.id}`} className="header">
-                {stream.name}
+                {stream.firstName} {stream.lastName}
               </Link>
              {this.renderRolename(stream)}
               
@@ -64,13 +70,18 @@ class StreamList extends React.Component {
         );
       });
     }
+    else{
+      return(
+        <div>Profiles Loading</div>
+      );
+    }
     
   }
 
   renderCreate() {
     if (this.props.isSignedIn) {
       return (
-        <div style={{ textAlign: 'right' }}>
+        <div style={{ textAlign: 'center' }}>
           <Link to="/applicants/new" className="ui button primary">
             Add Profile
           </Link>
