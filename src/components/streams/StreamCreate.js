@@ -8,8 +8,7 @@ const config = {
   bucketName: 'profileblog-profilepics',
   dirName: 'photos', 
   region: 'us-east-2',
-  accessKeyId: 'AKIAW2BFXH7KXXLM6CPY',
-  secretAccessKey: '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',
+  
 }
 
 class StreamCreate extends React.Component {
