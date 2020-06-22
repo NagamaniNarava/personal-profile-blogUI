@@ -3,9 +3,11 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchStreams } from '../../actions';
 
-class StreamList extends React.Component {
+class StreamList extends React.Component {  
   componentDidMount() {
-    this.props.fetchStreams();
+    if(!this.props.streams){
+      this.props.fetchStreams();
+    }
   }
  
 

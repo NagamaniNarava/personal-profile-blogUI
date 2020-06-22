@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { createStream } from '../../actions';
+import { createStream ,fetchStreams} from '../../actions';
 import StreamForm from './StreamForm';
 import S3FileUpload from 'react-s3';
 
@@ -32,11 +32,15 @@ class StreamCreate extends React.Component {
         </div>
     );
   }
+  componentWillUnmount(){
+    this.props.fetchStreams();
+  }
   render() {
     return (
       <div>
+        <br/>
         <h3>Create your Profile</h3>
-        {this.renderUpload()}
+        {/* {this.renderUpload()} */}
         <br/>
         <StreamForm onSubmit={this.onSubmit} />
       </div>
@@ -46,5 +50,5 @@ class StreamCreate extends React.Component {
 
 export default connect(
   null,
-  { createStream }
+  { createStream,fetchStreams }
 )(StreamCreate);

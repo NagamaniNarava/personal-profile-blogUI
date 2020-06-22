@@ -46,7 +46,6 @@ const Header = () => {
             </div> */}
 
 
-
             <div className="pusher">
                 <div className="ui inverted vertical masthead center aligned segment">
 
@@ -58,7 +57,7 @@ const Header = () => {
                         <Link to="/" className="item">Home</Link>
                         <Link to="/about" className="item"> About</Link> 
                         <div className="right item">
-                        <GoogleAuth />
+                            <GoogleAuth />
                         </div>
                     </div>
                     </div>

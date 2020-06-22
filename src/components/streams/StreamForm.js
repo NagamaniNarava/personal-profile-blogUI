@@ -50,13 +50,16 @@ class StreamForm extends React.Component {
 const validate = formValues => {
   const errors = {};
 
-  if (!formValues.firstname) {
-    errors.title = 'You must enter a name';
+  if (!formValues.firstName) {
+    errors.firstName = 'Please enter your first name';
+  }
+  if (!formValues.lastName) {
+    errors.lastName = 'Please enter your last name';
   }
 
-  if (!formValues.lastname) {
-    errors.title = 'You must enter a name';
-  }
+  // if (!formValues.lastname) {
+  //   errors.title = 'You must enter a name';
+  // }
 
   // if (!formValues.summary) {
   //   errors.description = 'You must enter a summary';
