@@ -1,19 +1,31 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchStream } from '../../actions';
+import pic from "./mani.png";
+import defaultpic from "./default-profile-picture.png";
 
 class StreamShow extends React.Component {
   constructor(props){
     super(props);
-    if(this.props.profiles){
-      for(var i = 0; i < this.props.profiles.length; i++){
-        if (this.props.profiles[i]['id'] === this.props.match.params.id){
-          this.matchprofile = this.props.profiles[i];
-          break;
+    if(this.props.profiles!=null){
+      if(this.props.profiles.length>0){
+        for(var i = 0; i < this.props.profiles.length; i++){
+          if (this.props.profiles[i]['id'] == this.props.match.params.id){
+            this.matchprofile = this.props.profiles[i];
+            break;
+          }
         }
       }
     }
   }
+  renderManiPic(firstName){
+    if(firstName === 'NAGAMANI'){
+      return(<center><img src={pic} class="ui circular image" style={{width:200}}></img></center>);
+    }
+    else{
+      return(<center><img src={defaultpic} class="ui circular image" style={{width:200}}></img></center>);
+    }
+ }
   componentDidMount(){
     if(!this.matchprofile){
       const { id } = this.props.match.params;
@@ -25,7 +37,9 @@ class StreamShow extends React.Component {
       const { firstName,lastName,role, summary,skills,education,phoneNo,mailId } = this.matchprofile;
       return (
         <div>
-          <center><h1>{firstName} &ensp; {lastName}</h1></center>
+          <br/>
+          {this.renderManiPic(firstName)}
+          <center><h1>{firstName} &nbsp; {lastName}</h1></center>
           <h3>Role/Headline:</h3>
           <h5>{role}</h5>
           <h3>About:</h3>
@@ -45,7 +59,9 @@ class StreamShow extends React.Component {
         const { firstName,lastName,role, summary,skills,education,phoneNo,mailId } = this.props.profile;
         return (
           <div>
-            <center><h1>{firstName} &ensp; {lastName}</h1></center>
+            <br/>
+            {this.renderManiPic(firstName)}
+            <center><h1>{firstName} &nbsp; {lastName}</h1></center>
             <h3>Role/Headline:</h3>
             <h5>{role}</h5>
             <h3>About:</h3>
