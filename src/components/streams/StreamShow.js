@@ -4,6 +4,7 @@ import { fetchStream } from '../../actions';
 import pic from "./mani.png";
 import defaultpic from "./default-profile-picture.png";
 
+
 class StreamShow extends React.Component {
   constructor(props){
     super(props);
@@ -20,10 +21,10 @@ class StreamShow extends React.Component {
   }
   renderManiPic(firstName){
     if(firstName === 'NAGAMANI'){
-      return(<center><img src={pic} class="ui circular image" style={{width:200}}></img></center>);
+      return(<center><img alt = "profile pic" src={pic} class="ui circular image" style={{width:200}}></img></center>);
     }
     else{
-      return(<center><img src={defaultpic} class="ui circular image" style={{width:200}}></img></center>);
+      return(<center><img alt = "profile pic" src={defaultpic} class="ui circular image" style={{width:200}}></img></center>);
     }
  }
   componentDidMount(){
