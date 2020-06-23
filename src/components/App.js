@@ -8,6 +8,7 @@ import StreamShow from './streams/StreamShow';
 import BlogShow from './streams/BlogShow';
 import Header from './Header';
 import history from '../history';
+import Footer from './footer';
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
             <Route path="/applicants/:id" exact component={StreamShow} />
             <Route path="/about" exact component={BlogShow} />
           </Switch>
+          <Footer />
         </div>
       </Router>
     </div>

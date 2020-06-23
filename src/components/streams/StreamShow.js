@@ -21,10 +21,10 @@ class StreamShow extends React.Component {
   }
   renderManiPic(firstName){
     if(firstName === 'NAGAMANI'){
-      return(<center><img alt = "profile pic" src={pic} class="ui circular image" style={{width:200}}></img></center>);
+      return(<center><img alt = "profile pic" src={pic} className="ui circular image" style={{width:200}}></img></center>);
     }
     else{
-      return(<center><img alt = "profile pic" src={defaultpic} class="ui circular image" style={{width:200}}></img></center>);
+      return(<center><img alt = "profile pic" src={defaultpic} className="ui circular image" style={{width:200}}></img></center>);
     }
  }
   componentDidMount(){
