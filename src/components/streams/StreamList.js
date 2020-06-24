@@ -98,7 +98,7 @@ class StreamList extends React.Component {
       return (
         <div className="item">
           <h5>
-            Please sign in with Google to create your profile in this blog.
+            Please sign in to Add profile in this blog.
           </h5>
       </div> 
       );
