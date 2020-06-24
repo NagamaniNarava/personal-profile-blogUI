@@ -85,7 +85,8 @@ class StreamShow extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return { profiles: state.profiles,profile:state.streams};
+  return { profiles: state.profiles,
+           profile:state.streams};
 };
 
 export default connect(

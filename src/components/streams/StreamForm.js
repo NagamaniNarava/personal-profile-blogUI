@@ -47,12 +47,16 @@ class StreamForm extends React.Component {
   }
 }
 
-const validate = formValues => {
+const validate = (formValues) => {
   const errors = {};
 
   if (!formValues.firstName) {
     errors.firstName = 'Please enter your first name';
   }
+  // if (formValues.firstName == initialValues.firstName) {
+  //   //errors.firstName = 'Please enter your first name';
+  //   errors.firstName = "No Changes in form";
+  // }
   if (!formValues.lastName) {
     errors.lastName = 'Please enter your last name';
   }

@@ -5,14 +5,13 @@ import { fetchStreams } from '../../actions';
 
 class StreamList extends React.Component {  
   componentDidMount() {
-    if(!this.props.streams){
+    if(!this.props.profiles){
       this.props.fetchStreams();
     }
   }
- 
-
   renderAdmin(stream) {
-    if (stream.userId === this.props.currentUserId) {
+    if ((stream.userId === this.props.currentUserId && this.props.isGuestSignedIn) || 
+        (this.props.currentUserId && stream.userId === this.props.currentUserId) || (this.props.currentUserId && stream.userId == null)) {
       return (
         <div className="right floated content">
           {/* <Link to={`/streams/edit/${stream.id}`} className="ui button primary">
@@ -20,15 +19,13 @@ class StreamList extends React.Component {
           </Link> */}
           <Link
             to={`/streams/delete/${stream.id}`}
-            className="ui button negative"
-          >
+            className="ui button negative">
             Delete
           </Link>
         </div>
       );
     }
   }
-
   renderRolename(stream){
     // if(stream.name === "NAGAMANI NARAVA"){
     //   return(
@@ -49,19 +46,25 @@ class StreamList extends React.Component {
           );
     
   }
-
-  renderList() {
-   
+  renderVerify(stream){
+    if(stream.userId){
+      return (
+        <div style ={{display:"inline-block"}}>(Verified <i className="thumbs up outline icon"></i>)</div>
+      )
+    }
     
-    if(this.props.streams!= null){
-      return this.props.streams.map(stream => {
+  }
+  renderList() { 
+    
+    if(this.props.profiles){
+      return this.props.profiles.map(stream => {
         return (
           <div className="item" key={stream.id}>
               {this.renderAdmin(stream)} 
             <i className="user icon" />
             <div className="content">
               <Link to={`/applicants/${stream.id}`} className="header">
-                {stream.firstName} {stream.lastName}
+                {stream.firstName} {stream.lastName} {this.renderVerify(stream)}
               </Link>
              {this.renderRolename(stream)}
               
@@ -80,7 +83,7 @@ class StreamList extends React.Component {
   }
 
   renderCreate() {
-    if (this.props.isSignedIn) {
+    if (this.props.isSignedIn || this.props.isGuestSignedIn) {
       return (
         <div style={{ textAlign: 'center' }}>
           <Link to="/applicants/new" className="ui button primary">
@@ -108,8 +111,36 @@ class StreamList extends React.Component {
         <br/>
          {this.renderMessage()}  
         <br/>
-        <h2>PROFILES:</h2>
-        <div className="ui celled list">{this.renderList()}</div>
+        {/* <h2>PROFILES:</h2> */}
+        <table className="ui celled padded table">
+          <thead>
+            <tr>
+              <th>PROFILES</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr>
+          <td>
+            <div className="ui celled list">{this.renderList()}</div>
+          </td>
+          </tr>
+          </tbody>
+          <tfoot>
+            <tr><th colSpan="5">
+              <div className="ui right floated pagination menu">
+                <a className="icon item">
+                  <i className="left chevron icon"></i>
+                </a>
+                <a className="item">1</a>
+                <a className="icon item">
+                  <i className="right chevron icon"></i>
+                </a>
+              </div>
+            </th>
+            </tr>
+          </tfoot>
+        </table>
+        
         {this.renderCreate()}
       </div>
     );
@@ -118,9 +149,10 @@ class StreamList extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    streams: state.profiles,
+    profiles: state.profiles,
     currentUserId: state.auth.userId,
-    isSignedIn: state.auth.isSignedIn
+    isSignedIn: state.auth.isSignedIn,
+    isGuestSignedIn:state.guestauth.isGuestSignedIn
   };
 };
 

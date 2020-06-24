@@ -25,6 +25,19 @@ export const signOut = () => {
   };
 };
 
+export const guestSignIn = () => {
+  return {
+    type: "GUEST_SIGN_IN"
+  };
+};
+
+export const guestSignOut = () => {
+  return {
+    type: "GUEST_SIGN_OUT"
+  };
+};
+
+
 export const createStream = formValues => async (dispatch, getState) => {
   
   const { userId } = getState().auth;

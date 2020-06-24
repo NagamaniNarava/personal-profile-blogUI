@@ -5,6 +5,19 @@ import { fetchStream, editStream } from '../../actions';
 import StreamForm from './StreamForm';
 
 class StreamEdit extends React.Component {
+  constructor(props){
+    super(props);
+    if(this.props.profiles!=null){
+      if(this.props.profiles.length>0){
+        for(var i = 0; i < this.props.profiles.length; i++){
+          if (this.props.profiles[i]['id'] == this.props.match.params.id){
+            this.matchprofile = this.props.profiles[i];
+            break;
+          }
+        }
+      }
+    }
+  }
   componentDidMount() {
     this.props.fetchStream(this.props.match.params.id);
   }
@@ -14,24 +27,25 @@ class StreamEdit extends React.Component {
   };
 
   render() {
-    if (!this.props.stream) {
-      return <div>Loading...</div>;
+    console.log(this.matchprofile);
+    if(this.matchprofile){
+      return (
+        <div>
+          <h3>Edit a Stream</h3>
+          <StreamForm
+            // initialValues={_.pick(this.props.stream, 'title', 'description')}
+            //initialValues={{firstName:"InitFirstName",lastName:"InitlastName",skills:"Initskills",role:"Initrole"}}
+            initialValues={this.matchprofile}
+            onSubmit={this.onSubmit}
+          />
+        </div>
+      );
     }
-
-    return (
-      <div>
-        <h3>Edit a Stream</h3>
-        <StreamForm
-          initialValues={_.pick(this.props.stream, 'title', 'description')}
-          onSubmit={this.onSubmit}
-        />
-      </div>
-    );
   }
 }
 
 const mapStateToProps = (state, ownProps) => {
-  return { stream: state.streams[ownProps.match.params.id] };
+  return { profiles: state.profiles,profile:state.streams};
 };
 
 export default connect(
