@@ -5,20 +5,20 @@ import { fetchStreams } from '../../actions';
 
 class StreamList extends React.Component {  
   componentDidMount() {
-    if(!this.props.profiles){
+    if(!this.props.profiles ){
       this.props.fetchStreams();
     }
   }
   renderAdmin(stream) {
-    if ((stream.userId === this.props.currentUserId && this.props.isGuestSignedIn) || 
-        (this.props.currentUserId && stream.userId === this.props.currentUserId) || (this.props.currentUserId && stream.userId == null)) {
+    if ((stream.userAuthenticateId === this.props.currentUserAuthenticateId && this.props.isGuestSignedIn) || 
+        (this.props.currentUserAuthenticateId && stream.userAuthenticateId === this.props.currentUserAuthenticateId) || (this.props.currentUserAuthenticateId && stream.userAuthenticateId == null)) {
       return (
         <div className="right floated content">
-          {/* <Link to={`/streams/edit/${stream.id}`} className="ui button primary">
+          {/* <Link to={`/applicant/edit/${stream.id}`} className="ui button primary">
             Edit
           </Link> */}
           <Link
-            to={`/streams/delete/${stream.id}`}
+            to={`/applicant/delete/${stream.id}`}
             className="ui button negative">
             Delete
           </Link>
@@ -47,7 +47,7 @@ class StreamList extends React.Component {
     
   }
   renderVerify(stream){
-    if(stream.userId){
+    if(stream.userAuthenticateId){
       return (
         <div style ={{display:"inline-block"}}>(Verified <i className="thumbs up outline icon"></i>)</div>
       )
@@ -55,7 +55,6 @@ class StreamList extends React.Component {
     
   }
   renderList() { 
-    
     if(this.props.profiles){
       return this.props.profiles.map(stream => {
         return (
@@ -76,7 +75,18 @@ class StreamList extends React.Component {
     }
     else{
       return(
-        <div>Profiles Loading</div>
+        <div className="ui placeholder">
+        <div className="image header">
+         <div className="line"></div>
+         <div className="line"></div>
+       </div>
+       <div className="paragraph">
+         <div className="line"></div>
+          <div className="line"></div>
+          <div className="line"></div>
+         <div className="line"></div>
+       </div>
+        </div>
       );
     }
     
@@ -97,8 +107,12 @@ class StreamList extends React.Component {
     if (!this.props.isSignedIn){
       return (
         <div className="item">
+          <h4>Sign In Instructions:</h4>
           <h5>
-            Please sign in to Add profile in this blog.
+            <ol>
+              <li>SignIn with Google,to create verified profiles.</li>
+              <li>SignIn as Guest, to get to know the blog, which doesnt need any login Info.</li>
+            </ol>
           </h5>
       </div> 
       );
@@ -150,7 +164,7 @@ class StreamList extends React.Component {
 const mapStateToProps = state => {
   return {
     profiles: state.profiles,
-    currentUserId: state.auth.userId,
+    currentUserAuthenticateId: state.auth.userAuthenticateId,
     isSignedIn: state.auth.isSignedIn,
     isGuestSignedIn:state.guestauth.isGuestSignedIn
   };

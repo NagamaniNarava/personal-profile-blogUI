@@ -6,20 +6,20 @@ import GuestAuth from './GuestAuth';
 
 class Header extends React.Component {
     renderButtons=()=>{
-    if (!this.props.currentUserId && !this.props.isGuestSignedIn){
+    if (!this.props.currentUserAuthenticateId && !this.props.isGuestSignedIn){
         return(
             <div className="right menu">
             <GuestAuth/>
             <GoogleAuth />
             </div>
         )
-    }else if(!this.props.currentUserId && this.props.isGuestSignedIn){
+    }else if(!this.props.currentUserAuthenticateId && this.props.isGuestSignedIn){
         return(
             <div className="right menu">
             <GuestAuth/>
             </div>
         )
-    }else if(this.props.currentUserId && !this.props.isGuestSignedIn){
+    }else if(this.props.currentUserAuthenticateId && !this.props.isGuestSignedIn){
         return(
             <div className="right menu">
             <GoogleAuth />
@@ -30,48 +30,8 @@ class Header extends React.Component {
     }
     render(){
         return (
-            // <div className="ui primary pointing menu">
-              
-            //   <Link to="/" className="item">
-            //   <h1 style= {{ fontSize: 25, color: "green" }}> PERSONAL PROFILE BLOG  </h1>
-            //   </Link> 
-            //   <div className="right menu">
-            //      <Link to="/blog" className="item">
-            //       <h2 style= {{ fontSize: 25, color: "green" }}>BLOG INFO</h2>
-            //     </Link> 
-                
-            //     <GoogleAuth />
-            //   </div>
-            // </div>
+            
             <div>
-                    {/* <div className="ui large top fixed menu transition hidden">
-                        <div className="ui container">
-                            <Link to="/" className="item">Home</Link>
-                            <Link to="/algorithms" className="item">Algorithms</Link>
-                            <a className="item">Configurations</a>
-                            <a className="item">About</a>
-                            <div className="right menu">
-                            <div className="item">
-                                <a className="ui button">Log in</a>
-                            </div>
-                            <div className="item">
-                                <a className="ui primary button">Sign Up</a>
-                            </div>
-                            </div>
-                        </div>
-                    </div> */}
-        
-        
-                    {/* <div className="ui vertical inverted sidebar menu left">
-                    <Link to="/" className="item">Home</Link>
-                    <Link to="/algorithms" className="item">Algorithms</Link>
-                    <a className="item">Configurations</a>
-                    <a className="item">About</a>
-                    <a className="item">Login</a>
-                    <a className="item">Signup</a>
-                    </div> */}
-        
-        
                     <div className="pusher">
                         <div className="ui inverted vertical masthead center aligned segment">
         
@@ -80,7 +40,8 @@ class Header extends React.Component {
                                 {/* <a className="toc item">
                                 <i className="sidebar icon"></i>
                                 </a> */}
-                                <Link to="/" className="item">Home</Link>
+                                <Link to="/" className="item">Profile Service</Link>
+                                <Link to="/search" className="item">Search Service</Link>
                                 <Link to="/about" className="item"> About</Link> 
                                 
                                 
@@ -112,7 +73,7 @@ class Header extends React.Component {
 const mapStateToProps = state => {
     return {
       streams: state.profiles,
-      currentUserId: state.auth.userId,
+      currentUserAuthenticateId: state.auth.userAuthenticateId,
       isSignedIn: state.auth.isSignedIn,
       isGuestSignedIn:state.guestauth.isGuestSignedIn
     };

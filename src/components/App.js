@@ -9,6 +9,7 @@ import BlogShow from './streams/BlogShow';
 import Header from './Header';
 import history from '../history';
 import Footer from './footer';
+import ProfileSearch from './search/profile-search';
 
 const App = () => {
   return (
@@ -19,10 +20,11 @@ const App = () => {
           <Switch>
             <Route path="/" exact component={StreamList} />
             <Route path="/applicants/new" exact component={StreamCreate} />
-            <Route path="/streams/edit/:id" exact component={StreamEdit} />
-            <Route path="/streams/delete/:id" exact component={StreamDelete} />
+            <Route path="/applicant/edit/:id" exact component={StreamEdit} />
+            <Route path="/applicant/delete/:id" exact component={StreamDelete} />
             <Route path="/applicants/:id" exact component={StreamShow} />
             <Route path="/about" exact component={BlogShow} />
+            <Route path="/search" exact component={ProfileSearch} />
           </Switch>
           <Footer />
         </div>

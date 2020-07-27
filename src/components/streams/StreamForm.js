@@ -1,7 +1,27 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { Dropdown, Button } from 'semantic-ui-react';
+import { times } from 'lodash';
+
+
+const options = [
+  { key: 'angular', text: 'Angular', value: 'Angular' },
+  { key: 'css', text: 'CSS', value: 'CSS' },
+  { key: 'html', text: 'HTML', value: 'HTML' },
+  { key: 'java', text: 'Java', value: 'Java' },
+  { key: 'javascript', text: 'Javascript', value: 'Javascript' },
+  { key: 'node', text: 'NodeJS', value: 'NodeJS' },
+  { key: 'python', text: 'Python', value: 'Python' },
+  { key: 'react', text: 'React', value: 'React' },
+  { key: 'ruby', text: 'Ruby', value: 'Ruby' },
+  { key: 'spring', text: 'Spring', value: 'Spring' },
+  { key: 'ui', text: 'UI Design', value: 'UI Design' },
+  { key: 'ux', text: 'UX', value: 'UX' }
+] 
 
 class StreamForm extends React.Component {
+  state = {applicantSkills:null};
+
   renderError({ error, touched }) {
     if (touched && error) {
       return (
@@ -23,8 +43,14 @@ class StreamForm extends React.Component {
     );
   };
 
+  
+  handleChange = (e,{value})=>{
+    this.setState({applicantSkills:value})
+  }
+
   onSubmit = formValues => {
-    this.props.onSubmit(formValues);
+    var applicantSkills =this.state.applicantSkills.toString();
+    this.props.onSubmit({ ...formValues, applicantSkills });
   };
 
   render() {
@@ -37,7 +63,8 @@ class StreamForm extends React.Component {
         <Field name="lastName" component={this.renderInput} label="Last Name" />
         <Field name="role" component={this.renderInput} label="Role/Headline" />
         <Field name="summary" component={this.renderInput} label="About" />
-        <Field name="skills" component={this.renderInput} label="Skills"/>
+        {/* <Field name="applicantSkills" component={this.renderInput} label="Skills"/> */}
+        <Dropdown name="applicantSkills" onChange={this.handleChange} component={this.renderInput} placeholder='Skills' fluid multiple selection options={options} /> 
         <Field name="education" component={this.renderInput} label="Education"/>
         <Field name="phoneNo" component={this.renderInput} label="Mobile number"/>
         <Field name="mailId" component={this.renderInput} label="Mail ID"/>
@@ -59,6 +86,30 @@ const validate = (formValues) => {
   // }
   if (!formValues.lastName) {
     errors.lastName = 'Please enter your last name';
+  }
+
+  if (!formValues.role) {
+    errors.role = 'Please enter your role';
+  }
+
+  if (!formValues.summary) {
+    errors.summary = 'Please enter your summary';
+  }
+
+  if (!formValues.applicantSkills) {
+    errors.applicantSkills = 'Please enter your Skills';
+  }
+
+  if (!formValues.education) {
+    errors.education = 'Please enter your education';
+  }
+
+  if (!formValues.phoneNo) {
+    errors.phoneNo = 'Please enter your phoneNo';
+  }
+
+  if (!formValues.mailId) {
+    errors.mailId = 'Please enter your mailId';
   }
 
   // if (!formValues.lastname) {

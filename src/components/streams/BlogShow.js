@@ -6,19 +6,47 @@ class StreamShow extends React.Component {
     return (
       <div>
         <br/>
-
-        <h2>Project Summary: </h2>
-
+        <h3>FULL STACK APPLICATION </h3>
+        <h4>FRONT END </h4>
         <ul>
-          <li>This blog is a Single Page Application developed in React with Redux</li>
-          <li>Profile data is stored using Spring REST with Hibernate</li>
-          <li>RDS database is created in AWS to add profile information</li>
-          <li>REST Application is deployed on AWS Elastic Bean Stalk</li>
-          <li>Front end is deployed in AWS EC2 Instance</li>
+          <li>Learning Geeks Blog is Single Page Application developed in React with Redux</li>
+          <li>Used React Router to provide all of the navigation and view-loading goodness!</li>
+          <li>Created multiple components.Mentioning important components below</li>
+          <ol>
+            <li>ProfileCreate</li>
+            <li>ProfileShow</li>
+            <li>ProfileDelete</li>
+            <li>ProfileSearch</li>
+            <li>ProfileAuth</li>
+          </ol>
+          <li>Maintained global state using Redux store</li>
+          <li>Used redux-thunk as middleware for API calls</li>
+          <h5>GitHub Link </h5>
+          <a>https://github.com/NagamaniNarava/personal-profile-blogUI</a>
         </ul>
 
-        <p >Note: I am still working on the implementation of the blog.Please bear with me if you find any bugs :)</p>
+        <h4>BACK END </h4>
+        <ul>
+          <li>Spring Boot application with individual micro services.</li>
+          <ol>
+            <li>Profiles Service</li>
+              <a>https://github.com/NagamaniNarava/springboot-profile-blog-service</a>
+            <li>ProfileSearch Service</li>
+              <a>https://github.com/NagamaniNarava/springboot-profile-search-service</a>
+          </ol>
+          <li>Implemented with Java 8</li>
+        </ul>
+        <h5>DB </h5>
+        <ul>
+          <li>AWS-RDS is used to store Profile data</li>
+          <li>DB is shared between the micro services</li>
+        </ul>
 
+        <h5>DEPLOY </h5>
+        <ul>
+          <li>Deployed on AWS cloud</li>
+        </ul>
+          
       </div>
     );
   }

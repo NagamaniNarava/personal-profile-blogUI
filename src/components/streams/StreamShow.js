@@ -35,7 +35,7 @@ class StreamShow extends React.Component {
    }
   render() {
     if(this.matchprofile){
-      const { firstName,lastName,role, summary,skills,education,phoneNo,mailId } = this.matchprofile;
+      const { firstName,lastName,role, summary,applicantSkills,education,phoneNo,mailId } = this.matchprofile;
       return (
         <div>
           <br/>
@@ -46,7 +46,7 @@ class StreamShow extends React.Component {
           <h3>About:</h3>
           <h5>{summary}</h5>
           <h3>Skills:</h3>
-          <h5>{skills}</h5>
+          <h5>{applicantSkills}</h5>
           <h3>Education:</h3>
           <h5>{education}</h5>
           <h3>Contact Details:</h3>
@@ -57,7 +57,7 @@ class StreamShow extends React.Component {
 
     else{
       if(this.props.profile){
-        const { firstName,lastName,role, summary,skills,education,phoneNo,mailId } = this.props.profile;
+        const { firstName,lastName,role, summary,applicantSkills,education,phoneNo,mailId } = this.props.profile;
         return (
           <div>
             <br/>
@@ -68,7 +68,7 @@ class StreamShow extends React.Component {
             <h3>About:</h3>
             <h5>{summary}</h5>
             <h3>Skills:</h3>
-            <h5>{skills}</h5>
+            <h5>{applicantSkills}</h5>
             <h3>Education:</h3>
             <h5>{education}</h5>
             <h3>Contact Details:</h3>
@@ -77,7 +77,20 @@ class StreamShow extends React.Component {
         );
       }
       else{
-        return(<div>fetching profile</div>);
+        return(
+      
+          <div class="ui fluid placeholder">
+            <div class="image header">
+              <div class="line"></div>
+              <div class="line"></div>
+            </div>
+            <div class="paragraph">
+              <div class="line"></div>
+              <div class="line"></div>
+              <div class="line"></div>
+            </div>
+          </div>
+        );
       }
     }
     

@@ -1,10 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { guestSignIn, guestSignOut } from '../actions';
+import history from '../history';
 
 class GuestAuth extends React.Component {
   onguestSignOutClick=()=>{
     this.props.guestSignOut();
+    history.push('/');
   }
   onGuestSignInClick=()=>{
     this.props.guestSignIn();
