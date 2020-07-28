@@ -1,6 +1,6 @@
 Full Stack Application with React - Front End
 
-<img src="20200728_090955.gif" width="40" height="40" />
+<img src="20200728_090955.gif" width="800" height="800" />
 
 ![Giphy](https://media.giphy.com/media/l0HUhhAtb86vYAHkY/giphy.gif)
 ![Giphy](https://media.giphy.com/media/26gN147Cy7zF1Mv7y/giphy.gif)
